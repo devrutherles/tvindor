@@ -1,11 +1,10 @@
 "use client";
-import { useSearchParams, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import axios from "axios";
 import { useEffect, useState, Suspense } from "react";
 const Menu = () => {
-  const searchParams = useSearchParams();
   const router = useRouter();
-  const id = searchParams.get("id");
+  const id = ("id");
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [image, setImage] = useState(null);
   const getImage = async (data) => {

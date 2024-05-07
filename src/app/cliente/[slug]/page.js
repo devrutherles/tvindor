@@ -1,17 +1,19 @@
 "use client";
-import React, { useEffect, useState , Suspense} from "react";
-import { useSearchParams } from "next/navigation";
-import axios from "../../lib/axios";
-import { postData } from "../../lib/functions";
-import Loading from "../../app/(app)/Loading";
-const Page = () => {
-  const searchParams = useSearchParams();
+import React, { useEffect, useState, Suspense } from "react";
+import axios from "../../../lib/axios";
+import { postData } from "../../../lib/functions";
+import Loading from "../../(app)/Loading";
+const Page = ({ params }) => {
   const [user, setUser] = useState(null);
   const [success, setSuccess] = useState("");
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const { slug } = params;
+let parame = decodeURIComponent(slug).split('&');
 
-  const id = searchParams.get("id");
-  const mesa = searchParams.get("mesa");
+let id = parame.find(param => param.startsWith('id')).split('=')[1];
+let mesa = parame.find(param => param.startsWith('mesa')).split('=')[1];
+
+console.log(id, mesa); // 1, 1
   const searchUser = async () => {
     await axios
       .get(`/api/user/${id}`)
@@ -20,7 +22,7 @@ const Page = () => {
         console.log(res?.data?.data);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("error usr", err);
       });
   };
   useEffect(() => {
@@ -78,9 +80,11 @@ const Page = () => {
 
     // window.open(BASE_URL + image, "_blank");
   };
- 
+  if (!user || !user?.name) {
+    return <Loading />;
+  }
   return (
-    <Suspense fallback={<Loading />}>
+  
     <div className="mx-auto max-w-[450px] h-[100vh]">
       <div className="h-full bg-gray-50  flex flex-col">
         <div className="rounded-b-xl bg-indigo-600 p-5 pb-44 text-white">
@@ -196,7 +200,6 @@ const Page = () => {
         </section>
       </div>
     </div>
-    </Suspense>
   );
 };
 
