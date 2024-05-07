@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , Suspense} from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "../../lib/axios";
 import { postData } from "../../lib/functions";
@@ -78,10 +78,9 @@ const Page = () => {
 
     // window.open(BASE_URL + image, "_blank");
   };
-  if (!user) {
-    return <Loading />;
-  }
+ 
   return (
+    <Suspense fallback={<Loading />}>
     <div className="mx-auto max-w-[450px] h-[100vh]">
       <div className="h-full bg-gray-50  flex flex-col">
         <div className="rounded-b-xl bg-indigo-600 p-5 pb-44 text-white">
@@ -197,6 +196,7 @@ const Page = () => {
         </section>
       </div>
     </div>
+    </Suspense>
   );
 };
 
