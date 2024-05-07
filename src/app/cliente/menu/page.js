@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 const Menu = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -36,20 +36,22 @@ const Menu = () => {
     }
   }, [id]);
   return (
-    <div className="mx-auto max-w-[450px] h-[100vh]">
-      <button
-        className="bg-blue-500 hover:bg-blue-700 mt-4 ml-4 text-white font-bold py-2 px-4 rounded"
-        onClick={() => router.back()}
-      >
-        Voltar
-      </button>
+    <Suspense fallback={<div>Carregando...</div>}>
+      <div className="mx-auto max-w-[450px] h-[100vh]">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 mt-4 ml-4 text-white font-bold py-2 px-4 rounded"
+          onClick={() => router.back()}
+        >
+          Voltar
+        </button>
 
-      <iframe
-        src={BASE_URL + image}
-        alt="Logo"
-        className="h-96 w-full object-cover mt-8 p-2"
-      />
-    </div>
+        <iframe
+          src={BASE_URL + image}
+          alt="Logo"
+          className="h-96 w-full object-cover mt-8 p-2"
+        />
+      </div>
+    </Suspense>
   );
 };
 
