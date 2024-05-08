@@ -53,7 +53,7 @@ export default function Config() {
       calback: (response) => {
         handleFeedback({
           title: "Configurações",
-          message: "Configurações salvas com sucesso",
+          message: "Configurações salvas com sucesso",     
           status: "success",
           open: true,
           cancel: "Cancelar",
@@ -155,7 +155,7 @@ export default function Config() {
                   type="text"
                   id="password"
                   name="password"
-                  onChange={(e) => setPassword(e)}
+                  onChange={(e) => onChangeUser(e)}
                   className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-none rounded-md"
                   placeholder="Senha"
                 />

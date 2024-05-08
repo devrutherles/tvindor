@@ -13,9 +13,9 @@ import AuthSessionStatus from "@/app/(auth)/AuthSessionStatus";
 const Login = () => {
   const router = useRouter();
 
-  const { login } = useAuth({
+  const { login } = useAuth({ 
     middleware: "guest",
-    redirectIfAuthenticated: "/dashboard",
+    redirectIfAuthenticated: "/dashboard",   
   });
 
   const [email, setEmail] = useState("");
