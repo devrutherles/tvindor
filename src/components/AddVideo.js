@@ -274,10 +274,15 @@ export default function AddVideo(props) {
                           const file = e.target.files[0];
                           const fileSize = file.size / 1024 / 1024;
                           const fileType = file.type;
-                          if (fileSize > 25) {
+                          if (fileSize > 1000) {
                             setErrors({
                               video: "O arquivo deve ser menor que 10MB",
                             });
+
+
+
+
+                            
                             return;
                           } else if (fileType !== "video/mp4") {
                             setErrors({
