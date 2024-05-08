@@ -44,7 +44,7 @@ const Videos = () => {
     title: "",
     video: "",
     expires_on: "",
-    status: null,
+    status: true,
     clientes: [user?.id],
   });
 

@@ -90,22 +90,7 @@ console.log(id, mesa); // 1, 1
         <div className="rounded-b-xl bg-indigo-600 p-5 pb-44 text-white">
           <div className="mb-4 flex items-center justify-between">
             <h1 className="text-center text-3xl font-semibold">{user?.name}</h1>
-            <div className="rounded-lg bg-indigo-50/30 p-3 hover:bg-white hover:text-indigo-500">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                />
-              </svg>
-            </div>
+            
           </div>
         </div>
         <div className="-mt-40 p-5">
@@ -114,10 +99,10 @@ console.log(id, mesa); // 1, 1
             <div className="mb-3"></div>
 
             <button
-              onClick={() => getImage()}
+              
               className="flex w-full items-center justify-center rounded-lg bg-indigo-600 py-3 px-5 font-medium tracking-wide text-white text-opacity-90 shadow-slate-100 hover:shadow-lg"
             >
-              <span className="mr-2">Ver cardápio</span>
+              <span className="mr-2">TV Propaganda</span>
               <svg
                 className="h-6 w-6"
                 fill="none"
