@@ -15,7 +15,7 @@ export default function SidePod({ isOpen, setIsOpen }) {
   const getLink = async () => {
     setLoading(true);
     const data = encodeUrl(
-      `https://front.rutherles.pt/cliente/?nome=${nome}&mesa=${mesa}&id=${user?.id}`
+      `https://front.rutherles.pt/cliente/&nome=${nome}&mesa=${mesa}&id=${user?.id}`
     );
 
     await getImageAsBase64(
