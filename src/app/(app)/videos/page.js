@@ -116,7 +116,7 @@ const Videos = () => {
           video: "",
           expires_on: "",
           status: true,
-          clientes: [],
+          clientes: [user?.id],
         });
         setAddvideo(false);
         setVideo(null);

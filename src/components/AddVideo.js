@@ -9,7 +9,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function AddVideo(props) {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState(
+    {
+      video: "",
+      
+    }
+  );
   const [user, setUser] = useState([]);
   const { formInputs } = props;
   const { handleChanges } = props;
@@ -269,7 +274,7 @@ export default function AddVideo(props) {
                           const file = e.target.files[0];
                           const fileSize = file.size / 1024 / 1024;
                           const fileType = file.type;
-                          if (fileSize > 10) {
+                          if (fileSize > 25) {
                             setErrors({
                               video: "O arquivo deve ser menor que 10MB",
                             });
