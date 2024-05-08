@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 
 export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
   const router = useRouter();
-  const params = useParams(); 
+  const params = useParams();
 
   const {
     data: user,
@@ -91,14 +91,14 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     await csrf();
 
     setErrors([]);
-    setStatus(null); 
+    setStatus(null);
 
     axios
       .post("/login", props)
       .then(() => {
         mutate();
       })
-      .catch((error) => { 
+      .catch((error) => {
         props.setLoading(false);
         console.error(error);
         if (error.response.status !== 422) throw error;
@@ -159,8 +159,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
   };
 
   useEffect(() => {
-    if (middleware === "auth" && user ) redirectIfAuthenticated
-    if (middleware === "guest" && redirectIfAuthenticated && user) 
+    if (middleware === "guest" && redirectIfAuthenticated && user)
       router.push(redirectIfAuthenticated);
     if (window.location.pathname === "/verify-email" && user?.email_verified_at)
       router.push(redirectIfAuthenticated);
