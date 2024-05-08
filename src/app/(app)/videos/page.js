@@ -295,7 +295,8 @@ const Videos = () => {
       setCurrentDelete(id);
     }
   };
-  console.log(formInputs);
+  console.log(videoPreview);
+  console.log(video)
   return (
     <>
       <div className="px-4 sm:px-6 lg:px-8">
